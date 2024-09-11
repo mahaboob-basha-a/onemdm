@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/job-title`,
+    require('./jobTitleCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/job-title/:id`,
+    require('./jobTitleUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/job-title/import`,
+    require('./jobTitleImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/job-title`,
+    require('./jobTitleDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/job-title/autocomplete`,
+    require('./jobTitleAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/job-title`,
+    require('./jobTitleList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/job-title/:id`,
+    require('./jobTitleFind').default,
+  );
+};

@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/assignment`,
+    require('./assignmentCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/assignment/:id`,
+    require('./assignmentUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/assignment/import`,
+    require('./assignmentImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/assignment`,
+    require('./assignmentDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/assignment/autocomplete`,
+    require('./assignmentAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/assignment`,
+    require('./assignmentList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/assignment/:id`,
+    require('./assignmentFind').default,
+  );
+};
